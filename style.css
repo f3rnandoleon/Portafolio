@@ -162,71 +162,219 @@ body {
   font-size: 0.95rem;
   margin-left: 1rem;
 }
-/* TIMELINE */
-.timeline {
+/* TRAYECTORIA - DOS COLUMNAS */
+.trayectoria-container {
   position: relative;
-  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr 4px 1fr;
+  gap: 4rem;
+  max-width: 1200px;
   margin: 40px auto;
-  padding-left: 40px;
+  padding: 0 2rem;
 }
 
-.timeline::before {
+/* Línea Central Vertical */
+.timeline-central {
+  position: relative;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--primary), var(--secondary), var(--accent));
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.2);
+}
+
+.timeline-central::before {
   content: '';
   position: absolute;
-  left: 0;
   top: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(to bottom, var(--primary), var(--secondary), transparent);
-}
-
-.timeline-item {
-  margin-bottom: 40px;
-  position: relative;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: -47px;
-  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 14px;
   height: 14px;
   background: var(--primary);
-  border: 4px solid white;
+  border: 3px solid white;
   border-radius: 50%;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
 }
 
-.timeline-content {
-  background: white;
-  padding: 1.5rem;
-  border-radius: var(--radius);
-  border: 1px solid #eef2ff;
-  box-shadow: var(--shadow-sm);
+.timeline-central::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
+}
+
+/* Columnas */
+.trayectoria-columna {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.trayectoria-titulo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--text-main);
+  position: relative;
+  padding-bottom: 0.8rem;
+}
+
+.trayectoria-titulo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* Items del Timeline - SIN CAJAS pero con espaciado variable */
+.trayectoria-columna .timeline-item {
+  position: relative;
+  padding-left: 0;
   transition: var(--transition);
+  margin-bottom: 2.5rem;
+}
+
+/* Espaciado personalizado para crear efecto MUY escalonado - NO a la misma altura */
+.educacion .timeline-item:nth-child(2) {
+  margin-top: 1rem;
+}
+
+.educacion .timeline-item:nth-child(3) {
+  margin-top: 19rem;
+}
+
+.educacion .timeline-item:nth-child(4) {
+  margin-top: 35rem;
+}
+
+.experiencia .timeline-item:nth-child(2) {
+  margin-top: 10rem;
+}
+
+.experiencia .timeline-item:nth-child(3) {
+  margin-top: 0rem;
+}
+
+.experiencia .timeline-item:nth-child(4) {
+  margin-top: 3rem;
+}
+
+/* Puntitos en la línea central para cada item */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border: 3px solid var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+  z-index: 10;
+  transition: var(--transition);
+}
+
+/* Posición del punto según la columna */
+.educacion .timeline-item::before {
+  right: calc(-4rem - 6px);
+}
+
+.experiencia .timeline-item::before {
+  left: calc(-4rem - 6px);
+}
+
+/* Efecto hover en los puntos */
+.timeline-item:hover::before {
+  background: var(--primary);
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.2);
+  transform: scale(1.2);
 }
 
 .timeline-date {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #4f46e5;
-  display: inline-block;
-  margin-bottom: 6px;
-}
-.timeline-content:hover {
-  transform: translateX(10px);
-  border-color: var(--primary);
-}
-.timeline-content h3 {
-  margin-bottom: 10px;
-  color: #1e40af;
+  color: var(--primary);
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
 }
 
-.timeline-content p {
-  color: #334155;
-  text-align: justify;
-  line-height: 1.7;
+.timeline-item h4 {
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+  color: var(--text-main);
+  font-weight: 700;
+  line-height: 1.3;
 }
+
+.institucion {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* Lista de logros/aprendizajes */
+.timeline-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.timeline-list li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 6px;
+  color: #475569;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* Puntos de lista MÁS PEQUEÑOS */
+.timeline-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Hover effects sutiles */
+.educacion .timeline-item:hover {
+  transform: translateX(-4px);
+}
+
+.experiencia .timeline-item:hover {
+  transform: translateX(4px);
+}
+
+.timeline-item:hover .timeline-date {
+  color: var(--secondary);
+}
+
+.timeline-item:hover h4 {
+  color: var(--primary);
+}
+
+
+
 
 
 .fila-proyecto {
@@ -665,14 +813,52 @@ body {
     padding: 10px 0;
     font-size: 1.05rem;
   }
-    .timeline {
-    padding-left: 20px;
+
+  /* Trayectoria Responsive */
+  .trayectoria-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 0 1rem;
   }
 
-  .timeline-content {
-    padding: 18px;
+  .timeline-central {
+    display: none;
   }
-    .contenido-sobre-mi {
+
+  .trayectoria-columna {
+    gap: 2rem;
+  }
+
+  .trayectoria-titulo {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-item {
+    margin-bottom: 1.5rem !important;
+    margin-top: 0 !important;
+  }
+
+  /* Ocultar los puntos en móvil */
+  .timeline-item::before {
+    display: none;
+  }
+
+  .timeline-item h4 {
+    font-size: 1.05rem;
+  }
+
+  .timeline-list li {
+    font-size: 0.88rem;
+  }
+
+  .educacion .timeline-item:hover,
+  .experiencia .timeline-item:hover {
+    transform: translateY(-2px);
+  }
+
+
+  .contenido-sobre-mi {
     gap: 25px;
   }
 
