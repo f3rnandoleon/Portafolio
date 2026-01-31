@@ -17,7 +17,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif; /* Tipografía más moderna */
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif; 
 }
 html {
   scroll-behavior: smooth;
@@ -31,7 +31,7 @@ body {
 }
 
 .navegacion {
-  position: fixed; /* Mejor que sticky para evitar saltos */
+  position: fixed; 
   top: 0;
   width: 100%;
   z-index: 1000;
@@ -121,7 +121,6 @@ body {
   margin-bottom: 40px;
 }
 
-/* Imagen */
 .picture {
   width: 280px;
   height: 300px;
@@ -131,7 +130,6 @@ body {
   box-shadow: 0 15px 35px rgba(37,99,235,0.18);
 }
 
-/* Texto */
 .texto-sobre-mi {
   flex: 1;
   margin-top: 1rem;
@@ -162,7 +160,6 @@ body {
   font-size: 0.95rem;
   margin-left: 1rem;
 }
-/* TRAYECTORIA - DOS COLUMNAS */
 .trayectoria-container {
   position: relative;
   display: grid;
@@ -173,7 +170,6 @@ body {
   padding: 0 2rem;
 }
 
-/* Línea Central Vertical */
 .timeline-central {
   position: relative;
   width: 4px;
@@ -210,7 +206,6 @@ body {
   box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
 }
 
-/* Columnas */
 .trayectoria-columna {
   display: flex;
   flex-direction: column;
@@ -239,7 +234,6 @@ body {
   border-radius: 2px;
 }
 
-/* Items del Timeline - SIN CAJAS pero con espaciado variable */
 .trayectoria-columna .timeline-item {
   position: relative;
   padding-left: 0;
@@ -247,32 +241,26 @@ body {
   margin-bottom: 2.5rem;
 }
 
-/* Espaciado personalizado para crear efecto MUY escalonado - NO a la misma altura */
 .educacion .timeline-item:nth-child(2) {
   margin-top: 1rem;
 }
 
 .educacion .timeline-item:nth-child(3) {
-  margin-top: 19rem;
+  margin-top: 21rem;
 }
 
-.educacion .timeline-item:nth-child(4) {
-  margin-top: 35rem;
-}
+
 
 .experiencia .timeline-item:nth-child(2) {
-  margin-top: 10rem;
+  margin-top: 13rem;
 }
 
 .experiencia .timeline-item:nth-child(3) {
   margin-top: 0rem;
 }
 
-.experiencia .timeline-item:nth-child(4) {
-  margin-top: 3rem;
-}
 
-/* Puntitos en la línea central para cada item */
+
 .timeline-item::before {
   content: '';
   position: absolute;
@@ -287,16 +275,14 @@ body {
   transition: var(--transition);
 }
 
-/* Posición del punto según la columna */
 .educacion .timeline-item::before {
-  right: calc(-4rem - 6px);
+  right: calc(-4.3rem - 6px);
 }
 
 .experiencia .timeline-item::before {
-  left: calc(-4rem - 6px);
+  left: calc(-4.3rem - 6px);
 }
 
-/* Efecto hover en los puntos */
 .timeline-item:hover::before {
   background: var(--primary);
   border-color: var(--secondary);
@@ -329,7 +315,6 @@ body {
   display: block;
 }
 
-/* Lista de logros/aprendizajes */
 .timeline-list {
   list-style: none;
   padding-left: 0;
@@ -345,9 +330,8 @@ body {
   line-height: 1.6;
 }
 
-/* Puntos de lista MÁS PEQUEÑOS */
 .timeline-list li::before {
-  content: '•';
+  content: '';
   position: absolute;
   left: 0;
   color: var(--primary);
@@ -356,7 +340,6 @@ body {
   line-height: 1.6;
 }
 
-/* Hover effects sutiles */
 .educacion .timeline-item:hover {
   transform: translateX(-4px);
 }
@@ -372,10 +355,6 @@ body {
 .timeline-item:hover h4 {
   color: var(--primary);
 }
-
-
-
-
 
 .fila-proyecto {
   display: grid;
@@ -513,7 +492,6 @@ body {
   margin-bottom: 30px;
 }
 
-/* LINKS */
 .contacto-links {
   display: flex;
   flex-direction: column;
@@ -533,7 +511,6 @@ body {
   font-size: 1.2rem;
 }
 
-/* TARJETA FORMULARIO */
 .contacto-formulario {
   background: white;
   padding: 35px;
@@ -560,7 +537,6 @@ body {
   color: #94a3b8;
 }
 
-/* BOTÓN */
 .btn-formulario {
   margin-top: 10px;
   background: linear-gradient(90deg, #2563eb, #4f46e5);
@@ -576,7 +552,6 @@ body {
   background: linear-gradient(90deg, #1d4ed8, #4338ca);
 }
 
-/* FOOTER */
 .footer-final {
   border-top: 1px solid #c7d2fe;
   padding-top: 25px;
