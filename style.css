@@ -21,6 +21,7 @@
 }
 html {
   scroll-behavior: smooth;
+  scroll-snap-type:y proximity;
 }
 
 body {
@@ -94,6 +95,7 @@ body {
 .seccion {
   padding: 90px 15%;
   position: relative;
+  scroll-snap-align: start;
 }
 
 .seccion:nth-child(even) {
@@ -579,6 +581,8 @@ body {
   display: flex;
   align-items: center;
   padding: 0 10%;
+  scroll-snap-align: start;
+
   background: 
     radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 40%),
     radial-gradient(circle at 90% 80%, rgba(79, 70, 229, 0.08) 0%, transparent 40%);
